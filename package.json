@@ -1,0 +1,9 @@
+{
+  "name": "ts-chain",
+  "version": "1.0.0",
+  "description": "Blockchain built with TypeScript",
+  "main": "index.js",
+  "repository": "https://github.com/dev-song/ts-chain.git",
+  "author": "dev-song <dvlprsong@gmail.com>",
+  "license": "MIT"
+}
