@@ -1,36 +1,20 @@
-interface Human {
-  name: string;
-  age: number;
-  gender: string;
-}
+class Block {
+  public index: number;
+  public hash: string;
+  public previousHash: string;
+  public data: string;
+  public timestamp: number;
 
-class NeoHuman {
-  public name: string;
-  public age: number;
-  public gender: string;
-
-  constructor(name: string, age: number, gender: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+  constructor(index: number, hash: string, previousHash: string, data: string, timestamp: number) {
+    this.index = index;
+    this.hash = hash;
+    this.previousHash = previousHash;
+    this.data = data;
+    this.timestamp = timestamp;
   }
 }
-const gandalf = new NeoHuman('Gandalf', 2001, 'male');
 
-const printGreetings = (name: string, age: number, gender: string): void => {
-  const greetings = `Hello, it's ${name}, age of ${age}. I'm ${gender}!`;
-  console.log(greetings);
-};
-printGreetings('Sangsu', 30, 'male');
+const genesisBlock: Block = new Block(0, 'abcdefg', '', 'Hello world', 123456);
 
-const printGreetingObject = (person: NeoHuman): void => {
-  const greetings = `Hello, it's ${person.name}, age of ${person.age}. I'm ${person.gender}.`;
-  console.log(greetings);
-};
-const radagast = { name: 'Radagast', age: 456, gender: 'male' };
-printGreetingObject(gandalf);
-
-const getNameAge = ({ name, age }: Human): void => {
-  console.log(name, age);
-};
-getNameAge(radagast);
+let blockchain: [Block] = [genesisBlock];
+console.log(blockchain);
