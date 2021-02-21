@@ -25,7 +25,7 @@ class Block {
   }
 }
 
-const genesisBlock: Block = new Block(0, 'abcdefg', '', 'Hello world', 123456);
+const genesisBlock: Block = new Block(0, 'abcdefg', '', 'Zero of all', 0);
 
 let blockchain: Block[] = [genesisBlock];
 const getBlockchain = (): Block[] => blockchain;
@@ -37,6 +37,7 @@ const createNewBlock = (data: string): Block => {
   const newTimestamp: number = getNewTimestamp();
   const newHash: string = Block.calculateBlockHash(newIndex, previousBlock.hash, newTimestamp, data);
   const newBlock: Block = new Block(newIndex, newHash, previousBlock.hash, data, newTimestamp);
+  addBlock(newBlock);
 
   return newBlock;
 };
@@ -57,5 +58,8 @@ const addBlock = (candidateBlock: Block): void => {
   blockchain.push(candidateBlock);
 };
 
-console.log(createNewBlock('hello!'));
-console.log(createNewBlock('goodbye!'));
+createNewBlock('second block it is!');
+createNewBlock('third block it is!');
+createNewBlock('fourth block it is!');
+
+console.log(blockchain);
